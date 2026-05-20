@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PumpConnect — Gizlilik Politikası</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #0B1F3A;
+      --blue:   #1A4A7A;
+      --cyan:   #00B4D8;
+      --light:  #F0F6FF;
+      --muted:  #6B8CAE;
+      --border: #D0DFF0;
+      --white:  #FFFFFF;
+      --text:   #1C2B3A;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: var(--navy);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,180,216,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(26,74,122,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .logo {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--cyan), #0077A8);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-icon svg { width: 24px; height: 24px; fill: white; }
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px; color: var(--white); letter-spacing: -0.3px;
+    }
+    .logo-name span { color: var(--cyan); }
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--white); letter-spacing: -0.5px; margin-bottom: 12px;
+    }
+    header p { color: var(--muted); font-size: 15px; font-weight: 300; }
+    .badge {
+      display: inline-block; margin-top: 16px;
+      padding: 5px 14px;
+      background: rgba(0,180,216,0.15);
+      border: 1px solid rgba(0,180,216,0.3);
+      border-radius: 20px; color: var(--cyan);
+      font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* Layout */
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    /* Cards */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px 36px; margin-bottom: 20px;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 24px rgba(11,31,58,0.08); }
+    .card-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    }
+    .card-icon svg { width: 18px; height: 18px; fill: white; }
+    .card-icon.cyan  { background: linear-gradient(135deg, var(--cyan), #0077A8); }
+    .card-icon.green { background: linear-gradient(135deg, #22C55E, #15803D); }
+    .card-icon.amber { background: linear-gradient(135deg, #F59E0B, #B45309); }
+    .card-icon.red   { background: linear-gradient(135deg, #EF4444, #991B1B); }
+    .card-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy); letter-spacing: -0.3px; }
+    .card p, .card li { font-size: 15px; color: #3A5068; margin-bottom: 10px; }
+    .card p:last-child, .card li:last-child { margin-bottom: 0; }
+    .card ul { padding-left: 0; list-style: none; }
+    .card ul li { padding-left: 20px; position: relative; }
+    .card ul li::before { content: '—'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+
+    /* Highlight */
+    .highlight {
+      background: linear-gradient(135deg, rgba(0,180,216,0.06), rgba(11,31,58,0.04));
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 10px; padding: 16px 20px; margin: 14px 0;
+    }
+    .highlight p { font-weight: 500; color: var(--navy) !important; margin: 0 !important; }
+
+    /* Contact */
+    .contact-card {
+      background: var(--navy); border-radius: 16px;
+      padding: 32px 36px; margin-bottom: 20px;
+    }
+    .contact-card .card-title { color: var(--white); }
+    .contact-card p { color: var(--muted) !important; }
+    .contact-card a { color: var(--cyan); text-decoration: none; font-weight: 500; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 24px;
+      color: var(--muted); font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .card, .contact-card { padding: 22px 20px; }
+      header { padding: 36px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <span class="logo-name">Pump<span>Connect</span></span>
+    </a>
+    <h1>Gizlilik Politikası</h1>
+    <p>GRESAN Yağ ve Makina Sanayi ve Ticaret A.Ş.</p>
+    <span class="badge">Son güncelleme: Mayıs 2025</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3z"/></svg>
+      </div>
+      <h2 class="card-title">Genel Bakış</h2>
+    </div>
+    <p><strong>PumpConnect</strong>, GRESAN marka endüstriyel pompa zamanlayıcı cihazlarını iOS mobil uygulaması üzerinden izlemenizi ve yönetmenizi sağlayan bir kurumsal araçtır.</p>
+    <div class="highlight">
+      <p>🔒 Bu uygulama hiçbir kişisel veriyi toplamaz, üçüncü taraflarla paylaşmaz veya bulut sunucularında saklamaz.</p>
+    </div>
+    <p>Tüm iletişim, uygulamanın kurulu olduğu cihaz ile pompa zamanlayıcı donanımı arasında yerel Wi-Fi ağı üzerinden gerçekleşir.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon cyan">
+        <svg viewBox="0 0 24 24"><path d="M12 3C7 3 2 5 2 9v6c0 4 5 6 10 6s10-2 10-6V9c0-4-5-6-10-6z"/></svg>
+      </div>
+      <h2 class="card-title">Cihazda Saklanan Veriler</h2>
+    </div>
+    <p>Uygulama aşağıdaki verileri yalnızca <strong>cihaz hafızasında</strong> saklar:</p>
+    <ul>
+      <li>Pompa cihazından çekilen hata kayıtları (CSV formatında, geçici olarak)</li>
+      <li>Kullanıcının girdiği alıcı e-posta adresi (yalnızca cihazda, şifreli depolama)</li>
+      <li>Özel gönderici e-posta adresi ve uygulama şifresi (yalnızca cihazda, şifreli depolama)</li>
+    </ul>
+    <p>Bu veriler <strong>yalnızca kullanıcının cihazında</strong> tutulur; hiçbir sunucuya veya üçüncü taraf platforma aktarılmaz.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon green">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+      <h2 class="card-title">Kesinlikle Toplanmayan Veriler</h2>
+    </div>
+    <ul>
+      <li>Konum bilgisi</li>
+      <li>Kişi listesi veya telefon numaraları</li>
+      <li>Kamera veya mikrofon verisi</li>
+      <li>Kullanım istatistikleri veya analitik veriler</li>
+      <li>Reklam tanımlayıcıları (IDFA vb.)</li>
+      <li>Hesap veya kimlik doğrulama bilgileri</li>
+    </ul>
+    <div class="highlight">
+      <p>✅ Uygulama herhangi bir reklam SDK'sı veya analitik kütüphane içermez.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon amber">
+        <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+      </div>
+      <h2 class="card-title">Ağ Erişimi</h2>
+    </div>
+    <p>Uygulama iki farklı amaç için ağ erişimi kullanır:</p>
+    <ul>
+      <li><strong>Yerel Wi-Fi:</strong> Pompa zamanlayıcı cihazına WebSocket üzerinden bağlanmak için (port 80, şifresiz yerel ağ)</li>
+      <li><strong>İnternet (E-posta):</strong> Kullanıcı talep ettiğinde hata raporunu SMTP üzerinden göndermek için</li>
+    </ul>
+    <p>E-posta gönderimi yalnızca kullanıcının manuel olarak başlatması ile gerçekleşir; uygulama arka planda otomatik olarak herhangi bir internet bağlantısı kurmaz.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-3-9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+      </div>
+      <h2 class="card-title">Veri Güvenliği</h2>
+    </div>
+    <p>Cihazda saklanan hassas bilgiler (e-posta adresi, şifre) iOS'un <strong>Keychain (Güvenli Depolama)</strong> altyapısı kullanılarak şifreli biçimde tutulur.</p>
+    <p>Uygulama, Apple'ın App Transport Security (ATS) kurallarına uymaktadır. Yerel pompa cihazıyla bağlantıda sertifika doğrulaması, cihazın kendi ürettiği self-signed sertifikası nedeniyle devre dışı bırakılmıştır; bu bağlantı yalnızca güvenilir yerel ağda gerçekleşir.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon red">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
+      <h2 class="card-title">Üçüncü Taraf Paylaşımı</h2>
+    </div>
+    <div class="highlight">
+      <p>🚫 Uygulama hiçbir kişisel veriyi üçüncü taraflarla paylaşmaz.</p>
+    </div>
+    <p>Kullanıcının isteğiyle gönderilen hata raporu e-postası, kullanıcının kendi belirlediği alıcı adresine iletilir. Bu işlemde yalnızca kullanıcının seçtiği SMTP sunucusu kullanılır.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon cyan">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      </div>
+      <h2 class="card-title">Çocukların Gizliliği</h2>
+    </div>
+    <p>PumpConnect, endüstriyel kullanım amacıyla tasarlanmış profesyonel bir uygulamadır. 13 yaşın altındaki bireylerden bilerek veri toplanmaz ve bu yaş grubuna yönelik kullanım hedeflenmemektedir.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-1.5 1.5 4 4L21 6.5zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg>
+      </div>
+      <h2 class="card-title">Politika Değişiklikleri</h2>
+    </div>
+    <p>Bu gizlilik politikası gerektiğinde güncellenebilir. Değişiklikler bu sayfada yayımlanır ve "Son güncelleme" tarihi revize edilir. Önemli değişikliklerde kullanıcılar uygulama güncellemesi aracılığıyla bilgilendirilir.</p>
+  </div>
+
+  <div class="contact-card">
+    <div class="card-header" style="border-bottom-color: rgba(255,255,255,0.1);">
+      <div class="card-icon cyan">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <h2 class="card-title">İletişim</h2>
+    </div>
+    <p>Gizlilik politikamıza ilişkin sorularınız için bize ulaşabilirsiniz:</p>
+    <br>
+    <p><strong style="color:#fff;">GRESAN Yağ ve Makina Sanayi ve Ticaret A.Ş.</strong></p>
+    <p>Web: <a href="https://www.gresan.com.tr" target="_blank">www.gresan.com.tr</a></p>
+    <p>E-posta: <a href="mailto:info@gresan.com.tr">info@gresan.com.tr</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 GRESAN Yağ ve Makina Sanayi ve Ticaret A.Ş. — Tüm hakları saklıdır.</p>
+  <p style="margin-top:6px;">PumpConnect iOS Uygulaması — Gizlilik Politikası</p>
+</footer>
+
+</body>
+</html>
